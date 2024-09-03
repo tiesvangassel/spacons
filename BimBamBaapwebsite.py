@@ -1,11 +1,8 @@
 from flask import Flask, render_template_string, jsonify
 import random
 import string
-Flask
-gunicorn
 
-
-app = Flask(bimbambaap)
+app = Flask(__name__)  # Correcte initialisatie van de Flask-app
 
 sentences = [
     "Iets brandbaars",
@@ -61,4 +58,4 @@ def get_result():
         return jsonify(result=random_sentence)
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(host='0.0.0.0', port=10000)  # Zorg ervoor dat de app op poort 10000 luistert
